@@ -39,6 +39,50 @@ int main() {
   // =========== START =========
 
 
+  const int yFinalSize = x.size(); 
+  int move = -1 * (w.size() - 1) / 2;
+
+  for (int indY = 0; indY < yFinalSize; indY++) {
+    int thisY = 0;
+
+    for (int i = 0; i < w.size(); i++) {
+
+      int xVal;
+      if (i + move < 0) {
+        xVal =  x[0];
+      } else if (i + move > x.size() - 1) {
+        xVal = x[x.size() - 1];
+      } else {
+        xVal = x[i + move];
+      }
+
+      thisY += xVal * w[i];
+    }
+
+    y.push_back(thisY);
+    move++;
+  }
+  
+
+
+  std::cout << "x: {";
+  for (int i = 0; i < x.size() - 1; i++) {
+    std::cout << x[i] << ",";
+  }
+  std::cout << x[x.size() - 1] << "}" << std::endl;
+
+  std::cout << "w: {";
+  for (int i = 0; i < w.size() - 1; i++) {
+    std::cout << w[i] << ",";
+  }
+  std::cout << w[w.size() - 1] << "}" << std::endl;
+
+  std::cout << "y: {";
+  for (int i = 0; i < y.size() - 1; i++) {
+    std::cout << y[i] << ",";
+  }
+  std::cout << y[y.size() - 1] << "}" << std::endl;
+
 
 
   // =========== END ===========
